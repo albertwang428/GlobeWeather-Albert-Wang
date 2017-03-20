@@ -1,0 +1,350 @@
+body {
+	background-color: #000000;
+	margin: 0px;
+	overflow: hidden;
+	-moz-user-select: 	none; 	/* mozilla browsers */
+	-khtml-user-select: none; 	/* webkit browsers */	 	
+	user-select: none;
+	min-width: 900px;
+}
+
+.embed > *,
+.embed #about-link {
+	display: none;
+}
+.embed #container,
+.embed #oldie { 
+	display: block;
+}
+
+h1 { 
+	font-weight: normal;
+	font-size: 22px;
+	border-bottom: 1px solid #666;
+	width: 315px;
+	padding-bottom: 7px;
+	padding-left: 7px;
+}
+
+#description .togglequality {
+	color: #aaa;
+	font-size: 12px;
+	font-weight: normal;
+	margin-left: 25px;
+	width: auto;
+	margin-top: -8px;
+	font-family: 'Arial';
+	font-weight: bold;
+}
+
+
+#description .togglequality:before {
+	font-size: 14px;
+	opacity: 0.5;
+	content: '[ ';
+} 
+
+#description .togglequality:after {
+	font-size: 14px;
+	opacity: 0.5;
+	content: ' ]';
+} 
+
+#description .togglequality:hover{
+	color: #eee;
+}
+
+#description a.selected {
+	color: #fff;
+}
+
+#description a:not(.togglequality) {
+
+	font-size: 20px;
+	
+}
+
+#description a {
+	color: #777;
+	text-decoration: none;
+	width: 99px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+#timeline {
+	bottom: 40px;
+	left: 50%;
+	margin-left: -350px;
+}
+
+#barBg { 
+	width: 700px;
+	height: 1px;
+	background-color: rgba(255,255,255,0.2);
+	cursor: pointer;
+	overflow: hidden;
+}
+
+#barBg {
+	border-top: 10px solid #000;
+	border-bottom: 10px solid #000;
+}
+
+#barPos {
+
+	height: 10px;
+	background-color: #fff;
+}
+
+#controlshelp { 
+	position: absolute; 
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	margin-left: -270px; /*?*/
+	margin-top: -50px;
+	text-align: center;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, .65);
+	border-radius: 5px;
+	padding: 15px;
+	color: #ffffff;
+	font-size: 32px;
+	-moz-user-select: 	none; 
+	-khtml-user-select: none;
+	display: none;
+}
+
+#iffcontainer {
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	width: 100%; 
+	height: 100%;
+	z-index: 10;
+}
+
+#cloudvideo {
+	position: absolute;
+	display: none;
+	top: 0;
+	z-index: 9999;
+}
+
+#top {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+}
+
+#info {
+	border-radius: 5px;
+	padding: 12px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: rgba(0,0,0,1.0) 1px 1px 0px;
+}
+
+#visinfo {
+	position: absolute;
+	bottom: 5px;				
+	padding: 10px;
+	font-size: 11px;
+	text-shadow: 0px 1px rgba(0,0,0,0.5);
+	text-align: center;
+	font-family: Monospace;
+ 	font-weight: bold;
+ 	font-size: 11px;
+	background-color: #000;
+	color: #fff;
+	width:	100%;
+}
+
+#description{
+	border-radius: 5px;
+	padding: 5px;
+	color: #fff;
+	font-size: 16px;
+	/*font-weight: bold;*/				
+	width: 600px;		
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+	-ms-user-select: none;
+	user-select: none;				
+	position:absolute; 
+	top: 10px; 
+	left:20px; 
+	z-index: 1000000;	
+}
+
+#extendedinfo{
+	background-color: #ffffff;
+	padding: 9px 18px;
+	color: #000000;
+	font-family: sans-serif;
+	font-size: 11px;
+	width: 311px;
+	text-align: left;
+	visibility: hidden;
+	line-height: 16px;
+	right: 20px;
+	bottom: 80px;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	  
+	z-index: 10000000;
+	position: absolute;
+}
+#extendedinfo ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#extendedinfo ul li { 
+	margin-bottom: 5px;
+}
+
+.timedisplay {
+position: absolute;
+display: inline;
+background-color: #fff;
+padding: 8px 16px;
+white-space: nowrap;
+text-align: center;
+font: italic 13px serif;
+color: #333;
+border-radius: 5px;
+}
+.timedisplay.hover {
+background-color: #202020;
+color: #fff;
+}
+#guicontainer{				
+}
+
+#iffcontainer{
+	/*display: none;*/
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+	-ms-user-select: none;
+	user-select: none;		
+}
+
+/* overriding DAT GUI styles */
+.close-button{
+	display: none;
+}
+
+.property-name{
+	display: none;
+}	
+
+.dg .cr.string {
+	border-left: 0px !important;
+}
+
+.dg .main::-webkit-scrollbar-thumb {
+	background: #000000 !important;
+}
+
+.dg li:not(.folder) {
+	background: #000000 !important;
+}
+
+#ce span {
+	display: none;	
+}
+
+#ce {
+	width: 107px;
+	height: 55px;
+	display: block;
+	position: absolute;
+	bottom: 15px;
+	left: 20px;
+	background: url(images/ce.png);
+	z-index: 10000000;
+}
+
+#about-link,
+#about-exit {
+  -webkit-transition: margin-top 0.3s cubic-bezier(0, 0.69, 0.42, 1);
+  -o-transition: margin-top 0.3s cubic-bezier(0, 0.69, 0.42, 1);
+  -moz-transition: margin-top 0.3s cubic-bezier(0, 0.69, 0.42, 1);
+  transition: margin-top 0.3s cubic-bezier(0, 0.69, 0.42, 1);
+
+  font-family: serif;
+  font-weight: 700;
+  font-size: 14pt;
+  display: inline-block;
+  width: 10px;
+  text-align: center;
+  height: 10px;
+  line-height: 13px;
+  border-radius: 30px;
+  padding: 10px;
+  color: #fff;
+  z-index: 100000;
+  vertical-align: middle;
+  margin-bottom: -6px;
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+}
+
+#extendedinfo a {
+  color: #000; 
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+
+#extendedinfo a:hover {
+	color: #039;
+	border-color: #aabad8;
+}
+
+#about-link,
+#about-link:hover,
+#about-exit:hover {
+    background-color: #333;
+    text-decoration: none;	
+}
+
+#about-exit {
+  font-weight: normal !important; 
+  text-decoration: none;	
+}
+
+#explore {
+	font: bold 12px sans-serif;
+	margin-left: 6px;
+	margin-bottom: 15px;
+}
+
+.moving-link { 
+	fill: #fff;
+}
+
+.hurricaneThumbnail{
+	/*position: absolute;*/
+	z-index: 49;
+}

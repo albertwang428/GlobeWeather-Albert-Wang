@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Global Weather</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="style.css"/>
+<script type="text/javascript" src="three.min.js"></script>
+<script type="text/javascript" src="sample.js"></script>
+</head>
+<body>
+	<div id="description">
+	<h1>Global Weather<a class="togglequality" href="#" onclick="toggleQuality(this)">high resolution</a></h1>
+	<a href="#" onclick="pickCategory('hurricanes')" class="catselect" id="stormselect">WindStorm</a>
+    <a href="#" onclick="pickCategory('rainforest')" class="catselect" id="rainforestselect">Vegetation</a>
+    <a href="#" onclick="pickCategory('currents')" class="catselect" id="currentsselect">Currents</a>
+	</div>
+	<div id="container"></div>
+	<div id="iffcontainer"></div>
+	
+</body>
+<script id="globeVertexShader" type="x-shader/x=vertex">
+	varying vec2 vUv;
+	
+	void main(){
+		gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
+		vUv=uv;
+	}
+</script>
+<script id="globeFragmentShader" type="x-shader/x=fragment">
+	uniform sampler2D Continental;
+	uniform sampler2D Coast;
+	precision mediump float;
+	varying vec2 vUv;
+	void main(){
+		vec3 textureColor=texture2D(Continental,vUv);
+		gl_FragColor=vec4(textureColor,1.0);
+	}
+</script>
+</html>
