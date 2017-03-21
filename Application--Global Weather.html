@@ -32,7 +32,7 @@
 	precision mediump float;
 	varying vec2 vUv;
 	void main(){
-		vec3 textureColor=texture2D(Continental,vUv);
+		vec3 textureColor=texture2D(Continental,vUv).xyz;
 		gl_FragColor=vec4(textureColor,1.0);
 	}
 </script>
