@@ -20,20 +20,36 @@
 </body>
 <script id="globeVertexShader" type="x-shader/x=vertex">
 	varying vec2 vUv;
-	
+	varying vec3 vNormal;
 	void main(){
 		gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);
 		vUv=uv;
+		vNormal=normalize(normalMatrix*normal);
 	}
 </script>
 <script id="globeFragmentShader" type="x-shader/x=fragment">
 	uniform sampler2D Continental;
 	uniform sampler2D Coast;
+	uniform float mul;
+	//uniform float cloudShadowAmount;
+
 	precision mediump float;
 	varying vec2 vUv;
+	varying vec3 vNormal;
 	void main(){
 		vec3 textureColor=texture2D(Continental,vUv).xyz;
-		gl_FragColor=vec4(textureColor,1.0);
+		vec3 nightColor = texture2D(Coast,vUv).xyz * vec3(2.0);
+
+        float nightAmount=(1.0-dot(vNormal,vec3(5.8,2.8,1.4))) * mul;
+        nightAmount = clamp(nightAmount,0.0,1.0);
+
+        vec3 diffuse = mix(textureColor,nightColor,nightAmount);
+
+        gl_FragColor = vec4(diffuse, 1.0);
+
+        float intensity =1.25-dot(vNormal,vec3(0.0, 0.0, 1.0));
+        intensity=pow(intensity, 8.0);
+        gl_FragColor=mix(gl_FragColor, vec4(1.0), intensity);
 	}
 </script>
 </html>
