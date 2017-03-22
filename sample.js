@@ -13,21 +13,22 @@ function sample(){
 	scene.add(axes);
 
 	var light=new THREE.SpotLight(0xffffff);
-	light.position.set(0,60,30);
+	light.position.set(30,40,100);
 	scene.add(light);
 	//创建图片为材质
-	texture=THREE.ImageUtils.loadTexture('image/coast.png');
+	texture=THREE.ImageUtils.loadTexture('image/continental.png');
 	texture.magFilter=THREE.LinearFilter;
 	texture.minFilter=THREE.LinearFilter;
 
-	var texture2=THREE.ImageUtils.loadTexture("image/coast.png");
+	var texture2=THREE.ImageUtils.loadTexture("image/land_lights_bloom.png");
 	texture2.magFilter=THREE.LinearFilter;
 	texture2.minFilter=THREE.LinearFilter;
 	var gm=new THREE.SphereGeometry(10,40,40,0,Math.PI*2,0,Math.PI);
 	
 	var uniforms={
 		Continental:{type:'t',value:1,texture:texture},
-		Coast:{type:'t',value:0}
+		Coast:{type:'t',value:0,texture:texture2},
+		mul:{type:"f",value:0.0},
 	}
 
 	var vertShader=document.getElementById("globeVertexShader").innerHTML;
