@@ -33,8 +33,8 @@ function updateGlobeAndCamera(){
   }
 
 
-	globeObject.rotation.y = -Math.PI/2 - rotation.x;
-	globeObject.rotation.x = rotation.y;
+	sp.rotation.y = -Math.PI/2 - rotation.x;
+	sp.rotation.x = rotation.y;
 
 
 	distance += ( distanceTarget - distance ) * zoomPower;	
